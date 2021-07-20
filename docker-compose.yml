@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  freematics:
+    container_name: freematics
+    environment:
+      - TZ=America/New_York
+      - PUID=1000
+      - PGID=1000
+    image: evandcoleman/freematics-hub:0.1.0
+    ports:
+      - "5170:8081/udp"
+    restart: unless-stopped
+    volumes:
+      - /home/username/docker/data/freematics/data:/data
+      
